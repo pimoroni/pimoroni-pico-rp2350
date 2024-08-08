@@ -36,7 +36,7 @@ jobs:
     env:
       # MicroPython version will be contained in github.event.release.tag_name for releases
       RELEASE_FILE: ${{ matrix.name }}-${{ github.event.release.tag_name || github.sha }}-pimoroni-micropython
-      PIMORONI_PICO_DIR: "${{ github.workspace }}/pimoroni-pico-rp2350-${{ github.sha }}"
+      PIMORONI_PICO_DIR: "${{ github.workspace }}/pimoroni-pico"
       MICROPY_BOARD_DIR: "${{ github.workspace }}/pimoroni-pico-rp2350-${{ github.sha }}/micropython/board/${{ matrix.BOARD }}"
       USER_C_MODULES: "${{ github.workspace }}/pimoroni-pico-rp2350-${{ github.sha }}/micropython/micropython-pico2.cmake"
       TAG_OR_SHA: ${{ github.event.release.tag_name || github.sha }}
@@ -86,7 +86,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: gadgetoid/py_decl
-        ref: v0.0.1
+        ref: v0.0.2
         path: py_decl
 
     - name: Build MPY Cross
