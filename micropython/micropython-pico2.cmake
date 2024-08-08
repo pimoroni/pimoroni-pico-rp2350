@@ -1,8 +1,10 @@
-include_directories(${CMAKE_CURRENT_LIST_DIR}/../../)
+set(PIMORONI_PICO_PATH ../pimoroni-pico)
+include(${CMAKE_CURRENT_LIST_DIR}/../pimoroni_pico_import.cmake)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../")
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../../")
+include_directories(${PIMORONI_PICO_PATH}/micropython)
+
+list(APPEND CMAKE_MODULE_PATH "${PIMORONI_PICO_PATH}/micropython")
+list(APPEND CMAKE_MODULE_PATH "${PIMORONI_PICO_PATH}/micropython/modules")
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
