@@ -29,9 +29,9 @@ jobs:
           board: PIMORONI_TINY2350
         - name: pico_plus2_rp2350_psram
           board: PIMORONI_PICO_PLUS2
+          variant: PSRAM
         - name: pico_plus2_rp2350
           board: PIMORONI_PICO_PLUS2
-          variant: PSRAM
 
     env:
       # MicroPython version will be contained in github.event.release.tag_name for releases
