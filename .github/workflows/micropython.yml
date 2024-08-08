@@ -1,0 +1,122 @@
+name: MicroPython
+
+on:
+  push:
+  pull_request:
+  release:
+    types: [created]
+
+env:
+  MICROPYTHON_VERSION: feature/psram
+  MICROPYTHON_FLAVOUR: pimoroni
+
+jobs:
+  build:
+    name: ${{ matrix.name }} (${{ matrix.board }})
+    runs-on: ubuntu-20.04
+    continue-on-error: true
+    strategy:
+      matrix:
+        include:
+        - name: pico2_rp2350
+          board: RPI_PICO2
+        - name: pico2b_rp2350
+          board: RPI_PICO2B
+        - name: plasma2350
+          board: PIMORONI_PLASMA2350
+        - name: tiny2350
+          board: PIMORONI_TINY2350
+        - name: pico_plus2_rp2350_psram
+          board: PIMORONI_PICO_PLUS2
+        - name: pico_plus2_rp2350
+          board: PIMORONI_PICO_PLUS2
+          variant: PSRAM
+
+    env:
+      # MicroPython version will be contained in github.event.release.tag_name for releases
+      RELEASE_FILE: ${{ matrix.name }}-${{ github.event.release.tag_name || github.sha }}-pimoroni-micropython
+      PIMORONI_PICO_DIR: "${{ github.workspace }}/pimoroni-pico-rp2350-${{ github.sha }}"
+      MICROPY_BOARD_DIR: "${{ github.workspace }}/pimoroni-pico-rp2350-${{ github.sha }}/micropython/board/${{ matrix.BOARD }}"
+      USER_C_MODULES: "${{ github.workspace }}/pimoroni-pico-rp2350-${{ github.sha }}/micropython/modules/micropython-${{ matrix.name }}.cmake"
+      TAG_OR_SHA: ${{ github.event.release.tag_name || github.sha }}
+      MICROPY_BOARD: ${{ matrix.board }}
+      MICROPY_BOARD_VARIANT: ${{ matrix.variant }}
+      BOARD_NAME: ${{ matrix.name }}
+      BUILD_TOOLS: pimoroni-pico-rp2350-${{ github.sha }}/ci/micropython.sh
+
+    steps:
+    - name: Compiler Cache
+      uses: actions/cache@v4
+      with:
+        path: /home/runner/.ccache
+        key: ccache-micropython-${{ matrix.name }}-${{ github.ref }}-${{ github.sha }}
+        restore-keys: |
+          ccache-micropython-${{ matrix.name }}-${{ github.ref }}
+          ccache-micropython-${{ matrix.name }}-
+
+    - uses: actions/checkout@v4
+      with:
+        submodules: true
+        path: pimoroni-pico-rp2350-${{ github.sha }}
+
+    - name: Install Arm GNU Toolchain (arm-none-eabi-gcc)
+      uses: carlosperate/arm-none-eabi-gcc-action@v1
+      with:
+        release: '9-2020-q2'
+
+    - name: Install CCache
+      run: |
+        source $BUILD_TOOLS
+        apt_install_build_deps
+      
+    - name: Checkout MicroPython & Submodules
+      run: |
+        source $BUILD_TOOLS
+        micropython_clone
+
+    - name: "Py_Decl: Checkout py_decl"
+      uses: actions/checkout@v4
+      with:
+        repository: gadgetoid/py_decl
+        ref: v0.0.1
+        path: py_decl
+
+    - name: Build MPY Cross
+      run: |
+        source $BUILD_TOOLS
+        micropython_build_mpy_cross
+
+    - name: Configure MicroPython
+      shell: bash
+      run: |
+        source $BUILD_TOOLS
+        micropython_version
+        cmake_configure
+
+    - name: Build MicroPython
+      shell: bash
+      run: |
+        source $BUILD_TOOLS
+        cmake_build
+
+    - name: "Py_Decl: Verify UF2"
+      shell: bash
+      run: |
+        python3 py_decl/py_decl.py --to-json --verify build-${{ matrix.name }}/${{ env.RELEASE_FILE }}.uf2
+
+    - name: Store .uf2 as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.RELEASE_FILE }}.uf2
+        path: build-${{ matrix.name }}/${{ env.RELEASE_FILE }}.uf2
+
+    - name: Upload .uf2
+      if: github.event_name == 'release'
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        asset_path: build-${{ matrix.name }}/firmware.uf2
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_name: ${{ env.RELEASE_FILE }}.uf2
+        asset_content_type: application/octet-stream
