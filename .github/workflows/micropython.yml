@@ -9,6 +9,7 @@ on:
 env:
   MICROPYTHON_VERSION: feature/psram
   MICROPYTHON_FLAVOUR: pimoroni
+  PIMORONI_PICO_VERSION: feature/sdk-2.0.0
 
 jobs:
   build:
@@ -37,7 +38,7 @@ jobs:
       RELEASE_FILE: ${{ matrix.name }}-${{ github.event.release.tag_name || github.sha }}-pimoroni-micropython
       PIMORONI_PICO_DIR: "${{ github.workspace }}/pimoroni-pico-rp2350-${{ github.sha }}"
       MICROPY_BOARD_DIR: "${{ github.workspace }}/pimoroni-pico-rp2350-${{ github.sha }}/micropython/board/${{ matrix.BOARD }}"
-      USER_C_MODULES: "${{ github.workspace }}/pimoroni-pico-rp2350-${{ github.sha }}/micropython/modules/micropython-${{ matrix.name }}.cmake"
+      USER_C_MODULES: "${{ github.workspace }}/pimoroni-pico-rp2350-${{ github.sha }}/micropython/micropython-pico2.cmake"
       TAG_OR_SHA: ${{ github.event.release.tag_name || github.sha }}
       MICROPY_BOARD: ${{ matrix.board }}
       MICROPY_BOARD_VARIANT: ${{ matrix.variant }}
@@ -58,6 +59,13 @@ jobs:
       with:
         submodules: true
         path: pimoroni-pico-rp2350-${{ github.sha }}
+
+    - uses: actions/checkout@v4
+      with:
+        repository: pimoroni/pimoroni-pico
+        ref: ${{env.PIMORONI_PICO_VERSION}}
+        submodules: true
+        path: pimoroni-pico
 
     - name: Install Arm GNU Toolchain (arm-none-eabi-gcc)
       uses: carlosperate/arm-none-eabi-gcc-action@v1
