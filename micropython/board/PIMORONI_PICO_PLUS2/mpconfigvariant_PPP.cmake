@@ -1,0 +1,11 @@
+# Override the MicroPython board name
+list(APPEND MICROPY_DEF_BOARD
+    "MICROPY_HW_ENABLE_PSRAM=1"
+    "MICROPY_GC_SPLIT_HEAP=1"
+    "MICROPY_HW_BOARD_NAME=\"Pimoroni Pico Plus 2 (PSRAM)\""
+    "PPP_ENABLE_PPP=1"
+)
+
+set(MICROPY_PY_LWIP ON)
+
+set(MICROPY_FROZEN_MANIFEST ${MICROPY_BOARD_DIR}/manifest-ppp.py)
