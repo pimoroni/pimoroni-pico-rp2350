@@ -30,9 +30,9 @@ jobs:
         - name: pico_plus2_rp2350_psram
           board: PIMORONI_PICO_PLUS2
           variant: PSRAM
-        - name: pico_plus2_rp2350_psram_n_ppp
+        - name: pico_plus2_rp2350_wireless
           board: PIMORONI_PICO_PLUS2
-          variant: PPP
+          variant: WIRELESS
         - name: pico_plus2_rp2350
           board: PIMORONI_PICO_PLUS2
 
