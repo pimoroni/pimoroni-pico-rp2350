@@ -34,12 +34,6 @@
 // This is not checked by mpconfigport.h so we must set up networking below
 #if defined(MICROPY_PY_NETWORK_PPP_LWIP)
 
-// TODO: This should be upstreamed to mpconfigport.h
-#define MICROPY_HW_NIC_PPP                      { MP_ROM_QSTR(MP_QSTR_PPP), MP_ROM_PTR(&mp_network_ppp_lwip_type) },
-
-#define MICROPY_BOARD_NETWORK_INTERFACES \
-    MICROPY_HW_NIC_PPP
-
-#define MICROPY_PY_SOCKET_EXTENDED_STATE        (1)
+// Nothing to do here?
 
 #endif
