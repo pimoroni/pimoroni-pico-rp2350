@@ -50,7 +50,7 @@ class LTE():
     def _netlight_irq(self, pin):
         self._led.value(pin.value())
 
-    def imei(self):
+    def imsi(self):
         try:
             return self._send_at_command("AT+CIMI", 1)
         except CellularError:
@@ -140,7 +140,7 @@ class LTE():
         self._send_at_command("AT+CSSLCFG=\"authmode\",0,0") 
         self._send_at_command("AT+CSSLCFG=\"enableSNI\",0,1")
 
-        print(f"  - cellular IMEI is {self.imei()}")
+        print(f"  - cellular IMSI is {self.imsi()}")
 
     def _wait_ready(self, poll_time=0.25, timeout=10):
         giveup = time.time() + timeout
