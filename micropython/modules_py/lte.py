@@ -50,6 +50,12 @@ class LTE():
     def _netlight_irq(self, pin):
         self._led.value(pin.value())
 
+    def ipconfig(self, *args, **kwargs):
+        if len(args):
+            return self._ppp.ipconfig(*args)
+        else:
+            return self._ppp.ipconfig(**kwargs)
+
     def iccid(self):
         try:
             return self._send_at_command("AT+CICCID", 1)
