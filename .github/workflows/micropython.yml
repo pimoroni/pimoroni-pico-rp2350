@@ -7,7 +7,7 @@ on:
     types: [created]
 
 env:
-  MICROPYTHON_VERSION: feature/psram
+  MICROPYTHON_VERSION: feature/spicy-wifi
   MICROPYTHON_FLAVOUR: pimoroni
   PIMORONI_PICO_VERSION: feature/sdk-2.0.0
 
