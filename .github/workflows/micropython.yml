@@ -28,6 +28,9 @@ jobs:
           board: RPI_PICO2B
         - name: plasma2350
           board: PIMORONI_PLASMA2350
+        - name: plasma2350_wireless
+          board: PIMORONI_PLASMA2350
+          variant: WIRELESS
         - name: tiny2350
           board: PIMORONI_TINY2350
         - name: pico_plus2_rp2350_psram
