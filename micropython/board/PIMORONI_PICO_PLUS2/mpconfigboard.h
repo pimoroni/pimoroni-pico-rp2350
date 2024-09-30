@@ -3,6 +3,14 @@
 
 #define MICROPY_HW_PSRAM_CS_PIN                 PIMORONI_PICO_PLUS2_PSRAM_CS_PIN
 
+#ifndef CYW43_WL_GPIO_COUNT
+// Effecively remaps LEDW,EXT_GPIO0 to GPIO25 on non-W builds
+#define pin_EXT_GPIO0                           pin_GPIO25
+// Shim the EXT GPIOs because we can't specify a variant pins.csv
+#define pin_EXT_GPIO1                           pin_GPIO1
+#define pin_EXT_GPIO2                           pin_GPIO2
+#endif
+
 // Might be defined in mpconfigvariant_PSRAM.cmake
 // or mpconfigvariant_WIRELESS.cmake
 #if defined(MICROPY_HW_ENABLE_PSRAM)
