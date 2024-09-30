@@ -1,6 +1,14 @@
 // Board and hardware specific configuration
 #define MICROPY_HW_FLASH_STORAGE_BYTES          (PICO_FLASH_SIZE_BYTES - (2 * 1024 * 1024))
 
+#ifndef CYW43_WL_GPIO_COUNT
+// Shim the EXT GPIOs because we can't specify a variant pins.csv
+// Remap them to LED R, G and B respectively on non-W builds
+#define pin_EXT_GPIO0                           pin_GPIO16
+#define pin_EXT_GPIO1                           pin_GPIO17
+#define pin_EXT_GPIO2                           pin_GPIO18
+#endif
+
 // I2C0 (non-default)
 #define MICROPY_HW_I2C0_SCL  (PLASMA2350_SDA_PIN)
 #define MICROPY_HW_I2C0_SDA  (PLASMA2350_SCL_PIN)
