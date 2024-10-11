@@ -5,13 +5,13 @@ You will need to add your wireless SSID and password to secrets.py (and save thi
 
 import network
 import requests
-from secrets import SSID, PASSWORD
+from secrets import WIFI_SSID, WIFI_PASSWORD
 from time import sleep
 
 # connect to wifi
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
-wlan.connect(SSID, PASSWORD)
+wlan.connect(WIFI_SSID, WIFI_PASSWORD)
 while wlan.isconnected() is False:
     print('Waiting for connection...')
     sleep(1)
