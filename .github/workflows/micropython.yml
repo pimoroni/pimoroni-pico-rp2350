@@ -7,7 +7,7 @@ on:
     types: [created]
 
 env:
-  MICROPYTHON_VERSION: feature/psram
+  MICROPYTHON_VERSION: feature/spicy-wifi
   MICROPYTHON_FLAVOUR: pimoroni
   PIMORONI_PICO_VERSION: feature/sdk-2.0.0
 
@@ -21,15 +21,24 @@ jobs:
         include:
         - name: pico2_rp2350
           board: RPI_PICO2
+        - name: pico2_rp2350_wireless
+          board: RPI_PICO2
+          variant: WIRELESS
         - name: pico2b_rp2350
           board: RPI_PICO2B
         - name: plasma2350
           board: PIMORONI_PLASMA2350
+        - name: plasma2350_wireless
+          board: PIMORONI_PLASMA2350
+          variant: WIRELESS
         - name: tiny2350
           board: PIMORONI_TINY2350
         - name: pico_plus2_rp2350_psram
           board: PIMORONI_PICO_PLUS2
           variant: PSRAM
+        - name: pico_plus2_rp2350_wireless
+          board: PIMORONI_PICO_PLUS2
+          variant: WIRELESS
         - name: pico_plus2_rp2350
           board: PIMORONI_PICO_PLUS2
 
@@ -70,7 +79,7 @@ jobs:
     - name: Install Arm GNU Toolchain (arm-none-eabi-gcc)
       uses: carlosperate/arm-none-eabi-gcc-action@v1
       with:
-        release: '9-2020-q2'
+        release: '13.3.Rel1'
 
     - name: Install CCache
       run: |
