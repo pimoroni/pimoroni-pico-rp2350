@@ -9,7 +9,7 @@ on:
 env:
   MICROPYTHON_VERSION: feature/psram
   MICROPYTHON_FLAVOUR: pimoroni
-  PIMORONI_PICO_VERSION: feature/sdk-2.0.0
+  PIMORONI_PICO_VERSION: main
 
 jobs:
   build:
