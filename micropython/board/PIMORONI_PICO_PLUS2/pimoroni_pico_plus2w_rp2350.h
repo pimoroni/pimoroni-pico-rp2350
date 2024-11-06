@@ -31,35 +31,6 @@
 #define PIMORONI_PICO_PLUS2_USER_SW_PIN 45
 #define PIMORONI_PICO_PLUS2_PSRAM_CS_PIN 47
 
-// -- CYW43 Wireless --
-#ifndef CYW43_DEFAULT_PIN_WL_HOST_WAKE
-#define CYW43_DEFAULT_PIN_WL_HOST_WAKE 24
-#endif
-
-#ifndef CYW43_DEFAULT_PIN_WL_REG_ON
-#define CYW43_DEFAULT_PIN_WL_REG_ON 23
-#endif
-
-#ifndef CYW43_WL_GPIO_COUNT
-#define CYW43_WL_GPIO_COUNT 3
-#endif
-
-#ifndef CYW43_WL_GPIO_LED_PIN
-#define CYW43_WL_GPIO_LED_PIN 0
-#endif
-
-// If CYW43_WL_GPIO_VBUS_PIN is defined then a CYW43 GPIO has to be used to read VBUS.
-// This can be passed to cyw43_arch_gpio_get to determine if the device is battery powered.
-// PICO_VBUS_PIN and CYW43_WL_GPIO_VBUS_PIN should not both be defined.
-
-// no CYW43_WL_GPIO_VBUS_PIN
-
-// If CYW43_USES_VSYS_PIN is defined then CYW43 uses the VSYS GPIO (defined by PICO_VSYS_PIN) for other purposes.
-// If this is the case, to use the VSYS GPIO it's necessary to ensure CYW43 is not using it.
-// This can be achieved by wrapping the use of the VSYS GPIO in cyw43_thread_enter / cyw43_thread_exit.
-
-// no CYW43_USES_VSYS_PIN
-
 // --- UART ---
 #ifndef PICO_DEFAULT_UART
 #define PICO_DEFAULT_UART 0
@@ -118,6 +89,26 @@
 #define PICO_FLASH_SIZE_BYTES (16 * 1024 * 1024)
 #endif
 
+#ifndef CYW43_WL_GPIO_COUNT
+#define CYW43_WL_GPIO_COUNT 3
+#endif
+
+#ifndef CYW43_WL_GPIO_LED_PIN
+#define CYW43_WL_GPIO_LED_PIN 0
+#endif
+
+// If CYW43_WL_GPIO_VBUS_PIN is defined then a CYW43 GPIO has to be used to read VBUS.
+// This can be passed to cyw43_arch_gpio_get to determine if the device is battery powered.
+// PICO_VBUS_PIN and CYW43_WL_GPIO_VBUS_PIN should not both be defined.
+
+// no CYW43_WL_GPIO_VBUS_PIN
+
+// If CYW43_USES_VSYS_PIN is defined then CYW43 uses the VSYS GPIO (defined by PICO_VSYS_PIN) for other purposes.
+// If this is the case, to use the VSYS GPIO it's necessary to ensure CYW43 is not using it.
+// This can be achieved by wrapping the use of the VSYS GPIO in cyw43_thread_enter / cyw43_thread_exit.
+
+// no CYW43_USES_VSYS_PIN
+
 // The GPIO Pin used to read VBUS to determine if the device is battery powered.
 #ifndef PICO_VBUS_PIN
 #define PICO_VBUS_PIN 24
@@ -131,6 +122,41 @@
 
 #ifndef PICO_RP2350_A2_SUPPORTED
 #define PICO_RP2350_A2_SUPPORTED 1
+#endif
+
+// PICO_CONFIG: CYW43_PIN_WL_DYNAMIC, flag to indicate if cyw43 SPI pins can be changed at runtime, type=bool, default=false, advanced=true, group=pico_cyw43_driver
+#ifndef CYW43_PIN_WL_DYNAMIC
+#define CYW43_PIN_WL_DYNAMIC 1
+#endif
+
+// PICO_CONFIG: CYW43_DEFAULT_PIN_WL_REG_ON, gpio pin to power up the cyw43 chip, type=int, default=23, advanced=true, group=pico_cyw43_driver
+#ifndef CYW43_DEFAULT_PIN_WL_REG_ON
+#define CYW43_DEFAULT_PIN_WL_REG_ON 23u
+#endif
+
+// PICO_CONFIG: CYW43_DEFAULT_PIN_WL_DATA_OUT, gpio pin for spi data out to the cyw43 chip, type=int, default=24, advanced=true, group=pico_cyw43_driver
+#ifndef CYW43_DEFAULT_PIN_WL_DATA_OUT
+#define CYW43_DEFAULT_PIN_WL_DATA_OUT 24u
+#endif
+
+// PICO_CONFIG: CYW43_DEFAULT_PIN_WL_DATA_IN, gpio pin for spi data in from the cyw43 chip, type=int, default=24, advanced=true, group=pico_cyw43_driver
+#ifndef CYW43_DEFAULT_PIN_WL_DATA_IN
+#define CYW43_DEFAULT_PIN_WL_DATA_IN 24u
+#endif
+
+// PICO_CONFIG: CYW43_DEFAULT_PIN_WL_HOST_WAKE, gpio (irq) pin for the irq line from the cyw43 chip, type=int, default=24, advanced=true, group=pico_cyw43_driver
+#ifndef CYW43_DEFAULT_PIN_WL_HOST_WAKE
+#define CYW43_DEFAULT_PIN_WL_HOST_WAKE 24u
+#endif
+
+// PICO_CONFIG: CYW43_DEFAULT_PIN_WL_CLOCK, gpio pin for the spi clock line to the cyw43 chip, type=int, default=29, advanced=true, group=pico_cyw43_driver
+#ifndef CYW43_DEFAULT_PIN_WL_CLOCK
+#define CYW43_DEFAULT_PIN_WL_CLOCK 29u
+#endif
+
+// PICO_CONFIG: CYW43_DEFAULT_PIN_WL_CS, gpio pin for the spi chip select to the cyw43 chip, type=int, default=25, advanced=true, group=pico_cyw43_driver
+#ifndef CYW43_DEFAULT_PIN_WL_CS
+#define CYW43_DEFAULT_PIN_WL_CS 25u
 #endif
 
 #endif
