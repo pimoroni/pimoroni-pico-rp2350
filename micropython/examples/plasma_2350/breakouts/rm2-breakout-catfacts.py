@@ -1,6 +1,6 @@
 """
 Get a cat fact from t'internet!
-You will need to add your wireless SSID and password to secrets.py (and save this file to your Pico)
+You will need to add your wireless SSID and password to secrets.py (and save this file to your Plasma)
 """
 
 import network
@@ -9,8 +9,8 @@ from secrets import WIFI_SSID, WIFI_PASSWORD
 from time import sleep
 
 # Specify the pins that that wireless module is connected to
-# The pins below are for a Pimoroni Pico Plus 2 with a RM2 breakout connected via SP/CE
-wlan = network.WLAN(network.STA_IF, pin_on=32, pin_out=35, pin_in=35, pin_wake=35, pin_clock=34, pin_cs=33)
+# The pins below are for a Plasma 2350 with a RM2 breakout connected via SP/CE
+wlan = network.WLAN(network.STA_IF, pin_on=8, pin_out=11, pin_in=11, pin_wake=11, pin_clock=10, pin_cs=9)
 
 # connect to wifi
 wlan.active(True)
