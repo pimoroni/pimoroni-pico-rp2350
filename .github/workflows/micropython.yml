@@ -7,7 +7,7 @@ on:
     types: [created]
 
 env:
-  MICROPYTHON_VERSION: feature/psram-and-wifi
+  MICROPYTHON_VERSION: feature/psram-wifi-n-bt
   MICROPYTHON_FLAVOUR: pimoroni
   PIMORONI_PICO_VERSION: main
 
