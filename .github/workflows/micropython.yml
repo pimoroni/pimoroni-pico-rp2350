@@ -31,6 +31,8 @@ jobs:
           board: PIMORONI_TINY2350
         - name: pico_plus2_rp2350
           board: PIMORONI_PICO_PLUS2
+        - name: i75w_rp2350
+          board: PIMORONI_I75W_2350
 
     env:
       # MicroPython version will be contained in github.event.release.tag_name for releases
