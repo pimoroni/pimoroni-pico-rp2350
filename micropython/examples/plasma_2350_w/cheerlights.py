@@ -5,7 +5,7 @@ import time
 import requests
 
 # Total number of LEDs on our LED strip
-NUM_LEDS = 60
+NUM_LEDS = 66
 
 # How long between cheerslight updates in seconds
 INTERVAL = 60
@@ -38,7 +38,7 @@ def connect():
 # led_strip = plasma.APA102(NUM_LEDS, 0, 0, plasma2040.DAT, plasma2040.CLK)
 
 # WS2812 / NeoPixel™ LEDs
-led_strip = plasma.WS2812(NUM_LEDS, 0, 0, plasma2040.DAT)
+led_strip = plasma.WS2812(NUM_LEDS, 0, 0, plasma2040.DAT, color_order=plasma.COLOR_ORDER_BGR)
 
 # Start connection to the network
 connect()

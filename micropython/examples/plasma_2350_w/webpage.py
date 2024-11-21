@@ -23,13 +23,13 @@ except ValueError as e:
     print(e)
 
 # Total number of LEDs on our LED strip
-NUM_LEDS = 60
+NUM_LEDS = 66
 
 # APA102 / DotStar™ LEDs
 # led_strip = plasma.APA102(NUM_LEDS, 0, 0, plasma2040.DAT, plasma2040.CLK)
 
 # WS2812 / NeoPixel™ LEDs
-led_strip = plasma.WS2812(NUM_LEDS, 0, 0, plasma.plasma2040.DAT)
+led_strip = plasma.WS2812(NUM_LEDS, 0, 0, plasma.plasma2040.DAT, color_order=plasma.COLOR_ORDER_BGR)
 
 # Setup the RGB Led
 led = RGBLED(16, 17, 18)
