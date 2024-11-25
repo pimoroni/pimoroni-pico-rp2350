@@ -3,7 +3,7 @@ from plasma import plasma2040
 import time
 
 # Set how many LEDs you have
-NUM_LEDS = 50
+NUM_LEDS = 66
 
 # APA102 / DotStar™ LEDs
 # led_strip = plasma.APA102(NUM_LEDS, 0, 0, plasma2040.DAT, plasma2040.CLK)
