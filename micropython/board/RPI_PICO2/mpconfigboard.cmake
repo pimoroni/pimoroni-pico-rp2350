@@ -1,8 +1,11 @@
-# cmake file for Raspberry Pi Pico
+# cmake file for Raspberry Pi Pico2
 set(PICO_BOARD "pico2")
-set(PICO_PLATFORM "rp2350")
 
-# Board specific version of the frozen manifest
-set(MICROPY_FROZEN_MANIFEST ${MICROPY_BOARD_DIR}/manifest.py)
+# To change the gpio count for QFN-80
+# set(PICO_NUM_GPIOS 48)
 
-set(MICROPY_C_HEAP_SIZE 4096)
+if (PICO_CYW43_SUPPORTED)
+    include(enable_cyw43.cmake)
+    set(MICROPY_FROZEN_MANIFEST ${MICROPY_BOARD_DIR}/manifest.py)
+    set(PICO_PINS_CSV_NAME pins_cyw43.csv)
+endif()
