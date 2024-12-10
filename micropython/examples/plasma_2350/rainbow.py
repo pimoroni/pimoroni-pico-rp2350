@@ -22,6 +22,6 @@ while True:
 
     for i in range(NUM_LEDS):
         hue = float(i) / NUM_LEDS
-        led_strip.set_hsv(i, offset, 1.0, 1.0)
+        led_strip.set_hsv(i, hue+offset, 1.0, 1.0)
 
     time.sleep(1.0 / 60)
