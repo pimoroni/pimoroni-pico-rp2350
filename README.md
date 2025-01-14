@@ -7,8 +7,8 @@ batteries-included flavour of MicroPython for RP2350 / Pico2 boards.
 
 | Board | MicroPython Flavour | Download Link | Notes |
 |-------|---------------------|---------------|-------|
-| Pimoroni Pico Plus 2 / 2 W | pico_plus2_rp2350 | [pico_plus2_rp2350-v0.0.11-pimoroni-micropython.uf2](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/download/v0.0.11/pico_plus2_rp2350-v0.0.11-pimoroni-micropython.uf2) | :warning: Experimental: Enables PSRAM
-| Plasma 2350 / Plasma 2350 W | plasma2350 | [plasma2350-v0.0.11-pimoroni-micropython.uf2](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/download/v0.0.11/plasma2350-v0.0.11-pimoroni-micropython.uf2) |
+| Pimoroni Pico Plus 2 & 2 W | pico_plus2_rp2350 | [pico_plus2_rp2350-v0.0.11-pimoroni-micropython.uf2](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/download/v0.0.11/pico_plus2_rp2350-v0.0.11-pimoroni-micropython.uf2) | :warning: Experimental: Enables PSRAM
+| Plasma 2350 & Plasma 2350 W | plasma2350 | [plasma2350-v0.0.11-pimoroni-micropython.uf2](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/download/v0.0.11/plasma2350-v0.0.11-pimoroni-micropython.uf2) |
 | Tiny 2350 | tiny2350 | [tiny2350-v0.0.11-pimoroni-micropython.uf2](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/download/v0.0.11/tiny2350-v0.0.11-pimoroni-micropython.uf2) |
 | Raspberry Pi Pico 2 | pico2 | [pico2-v0.0.11-pimoroni-micropython.uf2](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/download/v0.0.11/pico2-v0.0.11-pimoroni-micropython.uf2) | This gives you the Pimoroni Pico libs on a vanilla Pico 2
 | Raspberry Pi Pico 2 W | pico2_w | [pico2_w-v0.0.11-pimoroni-micropython.uf2](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/download/v0.0.11/pico2_w-v0.0.11-pimoroni-micropython.uf2) | This gives you the Pimoroni Pico libs on a vanilla Pico 2 W
