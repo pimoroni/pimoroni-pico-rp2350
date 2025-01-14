@@ -15,7 +15,7 @@ batteries-included flavour of MicroPython for RP2350 / Pico2 boards.
 | PGA2350 | ~ | [https://github.com/pimoroni/pga/](https://github.com/pimoroni/pga/) | See the PGA repo for builds and boilerplate
 | Pimoroni Explorer | ~ | [https://github.com/pimoroni/explorer](https://github.com/pimoroni/explorer) | See the Explorer repo for builds and examples
 | Inky Frame (Pico 2 W Aboard) | ~ | [https://github.com/pimoroni/inky-frame](https://github.com/pimoroni/inky-frame) | See the Inky Frame repo for builds and examples
-| Pico 2 W Unicorn | ~ | [https://github.com/pimoroni/presto](https://github.com/pimoroni/unicorn) | See the Unicorn repo for builds and examples
+| Pico 2 W Unicorn | ~ | [https://github.com/pimoroni/unicorn](https://github.com/pimoroni/unicorn) | See the Unicorn repo for builds and examples
 | Pimoroni Presto | ~ | [https://github.com/pimoroni/presto](https://github.com/pimoroni/presto) | See the Presto repo for builds and examples
 
 For a list of all releases see [https://github.com/pimoroni/pimoroni-pico-rp2350/releases](https://github.com/pimoroni/pimoroni-pico-rp2350/releases).
