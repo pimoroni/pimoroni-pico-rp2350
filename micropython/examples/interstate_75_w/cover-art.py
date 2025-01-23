@@ -21,8 +21,6 @@ i75 = Interstate75(display=DISPLAY_INTERSTATE75_128X128, stb_invert=False, panel
 display = i75.display
 WIDTH, HEIGHT = display.get_bounds()
 
-WHITE = display.create_pen(255, 255, 255)
-
 p = pngdec.PNG(display)
 
 
