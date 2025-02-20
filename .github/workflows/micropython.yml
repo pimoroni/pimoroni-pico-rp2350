@@ -9,7 +9,7 @@ on:
 env:
   MICROPYTHON_VERSION: feature/psram-and-wifi
   MICROPYTHON_FLAVOUR: pimoroni
-  PIMORONI_PICO_VERSION: main
+  PIMORONI_PICO_VERSION: feature/new_inventor
 
 jobs:
   build:
