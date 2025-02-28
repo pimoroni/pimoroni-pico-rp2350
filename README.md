@@ -17,5 +17,6 @@ batteries-included flavour of MicroPython for RP2350 / Pico2 boards.
 | Inky Frame (Pico 2 W Aboard) | ~ | [https://github.com/pimoroni/inky-frame](https://github.com/pimoroni/inky-frame) | See the Inky Frame repo for builds and examples
 | Pico 2 W Unicorn | ~ | [https://github.com/pimoroni/unicorn](https://github.com/pimoroni/unicorn) | See the Unicorn repo for builds and examples
 | Pimoroni Presto | ~ | [https://github.com/pimoroni/presto](https://github.com/pimoroni/presto) | See the Presto repo for builds and examples
+| Interstate 75 W (RP2350) | ~ | [https://github.com/pimoroni/interstate75](https://github.com/pimoroni/interstate75) | See the Interstate 75 repo for builds and examples
 
 For a list of all releases see [https://github.com/pimoroni/pimoroni-pico-rp2350/releases](https://github.com/pimoroni/pimoroni-pico-rp2350/releases).
