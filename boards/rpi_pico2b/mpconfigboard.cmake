@@ -10,3 +10,5 @@ set(MICROPY_FROZEN_MANIFEST ${MICROPY_BOARD_DIR}/manifest.py)
 set(MICROPY_C_HEAP_SIZE 4096)
 
 set(PICO_NUM_GPIOS 48)
+
+include(${CMAKE_CURRENT_LIST_DIR}/../common.cmake)
