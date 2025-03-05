@@ -12,3 +12,5 @@ include(enable_cyw43.cmake)
 
 # Board specific version of the frozen manifest
 set(MICROPY_FROZEN_MANIFEST ${MICROPY_BOARD_DIR}/manifest.py)
+
+include(${CMAKE_CURRENT_LIST_DIR}/../common.cmake)

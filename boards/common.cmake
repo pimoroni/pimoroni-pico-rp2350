@@ -7,10 +7,6 @@ find_package (Python COMPONENTS Interpreter Development)
 message("dir2uf2/py_decl: Using Python ${Python_EXECUTABLE}")
 MESSAGE("dir2uf2/py_decl: Using pimoroni tools dir ${PIMORONI_TOOLS_DIR}")
 
-# Convert supplies paths to absolute, for a quieter life
-get_filename_component(PIMORONI_UF2_MANIFEST ${PIMORONI_UF2_MANIFEST} REALPATH)
-get_filename_component(PIMORONI_UF2_DIR ${PIMORONI_UF2_DIR} REALPATH)
-
 if (EXISTS "${PIMORONI_TOOLS_DIR}/py_decl/py_decl.py")
     MESSAGE("py_decl: py_decl.py found, will verify uf2.")
     add_custom_target("${MICROPY_TARGET}-verify" ALL
@@ -20,6 +16,12 @@ if (EXISTS "${PIMORONI_TOOLS_DIR}/py_decl/py_decl.py")
         DEPENDS ${MICROPY_TARGET}
     )
 endif()
+
+if(DEFINED PIMORONI_UF2_MANIFEST AND DEFINED PIMORONI_UF2_DIR)
+
+# Convert supplies paths to absolute, for a quieter life
+get_filename_component(PIMORONI_UF2_MANIFEST ${PIMORONI_UF2_MANIFEST} REALPATH)
+get_filename_component(PIMORONI_UF2_DIR ${PIMORONI_UF2_DIR} REALPATH)
 
 if (EXISTS "${PIMORONI_TOOLS_DIR}/dir2uf2/dir2uf2" AND EXISTS "${PIMORONI_UF2_MANIFEST}" AND EXISTS "${PIMORONI_UF2_DIR}")
     MESSAGE("dir2uf2: Using manifest ${PIMORONI_UF2_MANIFEST}.")
@@ -34,4 +36,6 @@ if (EXISTS "${PIMORONI_TOOLS_DIR}/dir2uf2/dir2uf2" AND EXISTS "${PIMORONI_UF2_MA
 else()
     MESSAGE("dir2uf2: Could not find manifest ${PIMORONI_UF2_MANIFEST}")
     MESSAGE("         and/or root ${PIMORONI_UF2_DIR}.")
+endif()
+
 endif()

@@ -14,3 +14,5 @@ if (PICO_CYW43_SUPPORTED)
 endif()
 
 set(MICROPY_FROZEN_MANIFEST ${MICROPY_BOARD_DIR}/manifest.py)
+
+include(${CMAKE_CURRENT_LIST_DIR}/../common.cmake)
