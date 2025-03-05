@@ -118,12 +118,16 @@ function ci_cmake_build {
     cmake --build $BUILD_DIR -j 2
     ccache --show-stats || true
 
-    log_inform "Copying .uf2 to $(pwd)/$BOARD.uf2"
-    cp "$BUILD_DIR/firmware.uf2" $BOARD.uf2
+    if [ -z ${CI_RELEASE_FILENAME+x} ]; then
+        $CI_RELEASE_FILENAME=$BOARD
+    fi
+
+    log_inform "Copying .uf2 to $(pwd)/$CI_RELEASE_FILENAME.uf2"
+    cp "$BUILD_DIR/firmware.uf2" $CI_RELEASE_FILENAME.uf2
 
     if [ -f "$BUILD_DIR/firmware-with-filesystem.uf2" ]; then
-        log_inform "Copying -with-filesystem .uf2 to $(pwd)/$BOARD-with-filesystem.uf2"
-        cp "$BUILD_DIR/firmware-with-filesystem.uf2" $BOARD-with-filesystem.uf2
+        log_inform "Copying -with-filesystem .uf2 to $(pwd)/$CI_RELEASE_FILENAME-with-filesystem.uf2"
+        cp "$BUILD_DIR/firmware-with-filesystem.uf2" $CI_RELEASE_FILENAME-with-filesystem.uf2
     fi
 }
 
