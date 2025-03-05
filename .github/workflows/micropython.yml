@@ -23,7 +23,7 @@ jobs:
 
     env:
       # MicroPython version will be contained in github.event.release.tag_name for releases
-      RELEASE_FILE: ${{ matrix.name }}-${{ github.event.release.tag_name || github.sha }}-micropython
+      CI_RELEASE_FILENAME: ${{ matrix.name }}-${{ github.event.release.tag_name || github.sha }}-micropython
       CI_PROJECT_ROOT: ${{ github.workspace }}/src-${{ github.sha }}
       CI_BUILD_ROOT: ${{ github.workspace }}
       CI_USE_ENV: 1
@@ -75,29 +75,28 @@ jobs:
         python3 -m venv "$CI_BUILD_ROOT/.dir2uf2"
         source "$CI_BUILD_ROOT/.dir2uf2/bin/activate"
         ci_cmake_build ${{ matrix.name }}
-        mv "$CI_BUILD_ROOT/${{ matrix.name }}.uf2" "$CI_BUILD_ROOT/$RELEASE_FILE.uf2"
-        mv "$CI_BUILD_ROOT/${{ matrix.name }}-with-filesystem.uf2" "$CI_BUILD_ROOT/$RELEASE_FILE-with-filesystem.uf2"
 
     - name: "Artifacts: Upload .uf2"
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ env.RELEASE_FILE }}.uf2
-        path: ${{ env.CI_BUILD_ROOT }}/${{ env.RELEASE_FILE }}.uf2
-        
-    - name: "Artifacts: Upload .uf2 (With Filesystem)"
-      uses: actions/upload-artifact@v4
-      with:
-        name: ${{ env.RELEASE_FILE }}-with-filesystem.uf2
-        path: ${{ env.CI_BUILD_ROOT }}/${{ env.RELEASE_FILE }}-with-filesystem.uf2
+        name: ${{ env.CI_RELEASE_FILENAME }}.uf2
+        path: ${{ env.CI_BUILD_ROOT }}/${{ env.CI_RELEASE_FILENAME }}.uf2
 
     - name: "Release: Upload .uf2"
       if: github.event_name == 'release'
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
-        files: ${{ env.CI_BUILD_ROOT }}/${{ env.RELEASE_FILE }}.uf2
+        files: ${{ env.CI_BUILD_ROOT }}/${{ env.CI_RELEASE_FILENAME }}.uf2
+
+    - name: "Artifacts: Upload .uf2 (With Filesystem)"
+      uses: actions/upload-artifact@v4
+      with:
+        if-no-files-found: ignore
+        name: ${{ env.CI_RELEASE_FILENAME }}-with-filesystem.uf2
+        path: ${{ env.CI_BUILD_ROOT }}/${{ env.CI_RELEASE_FILENAME }}-with-filesystem.uf2
 
     - name: "Release: Upload .uf2 (With Filesystem)"
       if: github.event_name == 'release'
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
-        files: ${{ env.CI_BUILD_ROOT }}/${{ env.RELEASE_FILE }}-with-filesystem.uf2
+        files: ${{ env.CI_BUILD_ROOT }}/${{ env.CI_RELEASE_FILENAME }}-with-filesystem.uf2
