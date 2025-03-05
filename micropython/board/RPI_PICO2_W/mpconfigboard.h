@@ -4,8 +4,7 @@
 
 #define MICROPY_PY_NETWORK_HOSTNAME_DEFAULT     "Pico2W"
 
-// Enable WiFi & PPP
-#define MICROPY_PY_NETWORK                      (1)
+// Enable PPP
 #define MICROPY_PY_NETWORK_PPP_LWIP             (1)
 
 #include "enable_cyw43.h"
