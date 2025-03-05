@@ -1,4 +1,5 @@
-MODULES_PY = "../../../pimoroni-pico/micropython/modules_py"
+# micropython/ports/rp2/../../../
+MODULES_PY = "{PORT_DIR}/../../../pimoroni-pico/micropython/modules_py"
 
 # SD Card
 require("sdcard")
