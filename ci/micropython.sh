@@ -4,7 +4,7 @@ MICROPYTHON_FLAVOUR="pimoroni"
 MICROPYTHON_VERSION="feature/pico2_w_2025_3_11"
 
 PIMORONI_PICO_FLAVOUR="pimoroni"
-PIMORONI_PICO_VERSION="feature/picovector2-and-layers"
+PIMORONI_PICO_VERSION="feature/i75_duo"
 
 PY_DECL_VERSION="v0.0.3"
 DIR2UF2_VERSION="v0.0.9"
