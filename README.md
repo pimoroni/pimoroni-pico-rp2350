@@ -8,7 +8,6 @@ batteries-included flavour of MicroPython for RP2350 / Pico2 boards.
 | Board | MicroPython Flavour | Download Link | Notes |
 |-------|---------------------|---------------|-------|
 | Pimoroni Pico Plus 2 & 2 W | pico_plus2_rp2350 | [pico_plus2_rp2350-v0.0.12-pimoroni-micropython.uf2](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/download/v0.0.12/pico_plus2_rp2350-v0.0.12-pimoroni-micropython.uf2) | :warning: Experimental: Enables PSRAM
-| Plasma 2350 & Plasma 2350 W | plasma2350 | [plasma2350-v0.0.12-pimoroni-micropython.uf2](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/download/v0.0.12/plasma2350-v0.0.12-pimoroni-micropython.uf2) |
 | Tiny 2350 | tiny2350 | [tiny2350-v0.0.12-pimoroni-micropython.uf2](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/download/v0.0.12/tiny2350-v0.0.12-pimoroni-micropython.uf2) |
 | Raspberry Pi Pico 2 | pico2 | [pico2-v0.0.12-pimoroni-micropython.uf2](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/download/v0.0.12/pico2-v0.0.12-pimoroni-micropython.uf2) | This gives you the Pimoroni Pico libs on a vanilla Pico 2
 | Raspberry Pi Pico 2 W | pico2_w | [pico2_w-v0.0.12-pimoroni-micropython.uf2](https://github.com/pimoroni/pimoroni-pico-rp2350/releases/download/v0.0.12/pico2_w-v0.0.12-pimoroni-micropython.uf2) | This gives you the Pimoroni Pico libs on a vanilla Pico 2 W
@@ -18,5 +17,6 @@ batteries-included flavour of MicroPython for RP2350 / Pico2 boards.
 | Pico 2 W Unicorn | ~ | [https://github.com/pimoroni/unicorn](https://github.com/pimoroni/unicorn) | See the Unicorn repo for builds and examples
 | Pimoroni Presto | ~ | [https://github.com/pimoroni/presto](https://github.com/pimoroni/presto) | See the Presto repo for builds and examples
 | Interstate 75 W (RP2350) | ~ | [https://github.com/pimoroni/interstate75](https://github.com/pimoroni/interstate75) | See the Interstate 75 repo for builds and examples
+| Plasma 2350 & Plasma 2350 W | ~ | [https://github.com/pimoroni/plasma](https://github.com/pimoroni/plasma) | See the Plasma repo for builds and examples
 
 For a list of all releases see [https://github.com/pimoroni/pimoroni-pico-rp2350/releases](https://github.com/pimoroni/pimoroni-pico-rp2350/releases).
