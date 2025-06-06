@@ -21,6 +21,7 @@ jobs:
         - name: pimoroni_tiny2350
         - name: pimoroni_pico_plus2
         - name: pimoroni_pico_lipo2
+        - name: pimoroni_pico_lipo2xl_w
 
     env:
       # MicroPython version will be contained in github.event.release.tag_name for releases
