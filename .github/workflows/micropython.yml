@@ -19,6 +19,7 @@ jobs:
         - name: rpi_pico2b
         - name: pimoroni_plasma2350
         - name: pimoroni_tiny2350
+        - name: pimoroni_tiny2350_w
         - name: pimoroni_pico_plus2
 
     env:
