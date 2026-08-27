@@ -9,6 +9,10 @@ set(MICROPY_FROZEN_MANIFEST ${MICROPY_BOARD_DIR}/manifest.py)
 
 set(MICROPY_C_HEAP_SIZE 4096)
 
+# 8MB PSRAM on GPIO47
+set(MICROPY_HW_ENABLE_PSRAM 1)
+set(MICROPY_HW_PSRAM_CS_PIN 47)
+
 # Links micropy_lib_lwip and sets MICROPY_PY_LWIP = 1
 # Picked up and expanded upon in mpconfigboard.h
 set(MICROPY_PY_LWIP ON)
